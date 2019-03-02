@@ -15,7 +15,8 @@ export function makeCardTemplate(pokemon) {
 }
 
 const pokeDisplay = document.getElementById('poke-display');
-export default function loadDisplay(pokemonList) {
+export default function loadDisplay(pokemonList, state) {
+   displayPageNav(state);
    clearDisplay();
    pokemonList.forEach(pokemon => {
       pokeDisplay.appendChild(makeCardTemplate(pokemon));
@@ -27,4 +28,18 @@ function clearDisplay() {
    while(pokeDisplay.firstChild) {
       pokeDisplay.firstChild.remove();
    }
+}
+
+const nextButton = document.getElementById('next');
+const prevButton = document.getElementById('previous');
+const currentPage = document.getElementById('current-page');
+const totalPages = document.getElementById('total-pages');
+
+function displayPageNav(state) {
+   const totalPagesNumber = Math.ceil(state.currentList.length / state.page.perPage);
+   totalPages.textContent = totalPagesNumber;
+   prevButton.disabled = state.page.currentPage <= 1;
+   nextButton.disabled = state.page.currentPage >= totalPagesNumber;
+   currentPage.textContent = state.page.currentPage;
+   return state;
 }
