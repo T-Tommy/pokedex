@@ -6,8 +6,8 @@ const totalPages = document.getElementById('total-pages');
 let currentPageNumber = 1;
 currentPage.textContent = currentPageNumber;
 
-export function changePage(listLength, callback) {
-   const PER_PAGE = 100;
+export default function changePage(listLength, callback) {
+   const PER_PAGE = 25;
    let totalPagesNumber = Math.ceil(listLength / PER_PAGE);
    totalPages.textContent = totalPagesNumber;
    updatePageNav();
