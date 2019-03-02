@@ -12,14 +12,15 @@ header {
 }
 #poke-display {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
 }
 
 #poke-display li {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
   list-style: none;
   border: 3px solid black;
   width: 200px;
@@ -27,7 +28,7 @@ header {
   margin: 4px;
 }
 #poke-display img {
-  width: 40%;
+  width: 60%;
 }
 
 .type1, .type2 {
