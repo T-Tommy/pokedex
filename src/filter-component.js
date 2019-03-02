@@ -13,8 +13,8 @@ export default function chooseFilter() {
    function updateFilter() {
       const filterChoices = {
          type: typeSelect.value,
-         region: regionSelect.value
+         region: Number(regionSelect.value)
       };
-      console.log(filterChoices);
+      console.log(typeof filterChoices.region);
    }
 }
