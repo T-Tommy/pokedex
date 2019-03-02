@@ -1,5 +1,5 @@
-export default function pageArray(cardList, pageInfo) {
-   const startIndex = (pageInfo.currentPage - 1) * pageInfo.perPage;
-   const endIndex = startIndex + pageInfo.perPage;
-   return cardList.slice(startIndex, endIndex);
+export default function pageArray(array, page) {
+   const startIndex = (page.currentPage - 1) * page.perPage;
+   const endIndex = startIndex + page.perPage;
+   return array.slice(startIndex, endIndex);
 }
