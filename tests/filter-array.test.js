@@ -1,3 +1,5 @@
+import filterArray from '../src/filter-array.js';
+
 const test = QUnit.test;
 
 QUnit.module('Filtering Tests');
@@ -66,21 +68,12 @@ const testArray = [
    },
 ];
 
-function filterArray(testArray, filterChoices) {
-   const filtered = testArray.filter(pokemon => {
-      let type = filterChoices.type === 'all' ? true : filterChoices.type === pokemon.type_1 || filterChoices.type === pokemon.type_2;
-      let region = filterChoices.region === 'all' ? true : filterChoices.region === pokemon.generation_id;
-      return type && region;
-   });
-   return filtered;
-}
-
 test('Filter: all all', assert => {
     // Arrange
    const expected = testArray;
    const filterChoices = {
       type: 'all',
-      region: 'all'
+      region: 0
    };
 
     // Act
@@ -108,7 +101,7 @@ test('Filter: grass all', assert => {
    ];
    const filterChoices = {
       type: 'grass',
-      region: 'all'
+      region: 0
    };
 
     // Act
@@ -161,7 +154,7 @@ test('Filter all Kanto', assert => {
    ];
    const filterChoices = {
       type: 'all',
-      region: 1,
+      region: 1
    };
 
     // Act
@@ -183,7 +176,7 @@ test('Filter grass kanto', assert => {
    ];
    const filterChoices = {
       type: 'grass',
-      region: 1,
+      region: 1
    };
 
     // Act
@@ -212,7 +205,7 @@ test('Filter poison all', assert => {
    ];
    const filterChoices = {
       type: 'poison',
-      region: 'all'
+      region: 0
    };
 
     // Act

@@ -1,8 +1,8 @@
 const typeSelect = document.getElementById('type-select');
 const regionSelect = document.getElementById('region-select');
 
-export default function chooseFilter() {
-
+export default function chooseFilter(pokemonList, callback) {
+   
    typeSelect.addEventListener('change', () => {
       updateFilter();
    });
@@ -15,6 +15,6 @@ export default function chooseFilter() {
          type: typeSelect.value,
          region: Number(regionSelect.value)
       };
-      console.log(typeof filterChoices.region);
+      callback(filterChoices);
    }
 }

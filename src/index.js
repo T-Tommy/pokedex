@@ -4,6 +4,7 @@ import changePage from './paging-component.js';
 import pageArray from './page-array.js';
 
 import chooseFilter from './filter-component.js';
+import filterArray from './filter-array.js';
 
 loadDisplay(pokemonList);
 changePage(pokemonList.length, (pageInfo) => {
@@ -11,4 +12,7 @@ changePage(pokemonList.length, (pageInfo) => {
    loadDisplay(paged); 
 });
 
-chooseFilter();
+chooseFilter(pokemonList, filterChoices => {
+   const filtered = filterArray(pokemonList, filterChoices);
+   loadDisplay(filtered);
+});
